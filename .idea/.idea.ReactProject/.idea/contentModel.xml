@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$USER_HOME$/.nuget/packages/microsoft.net.test.sdk/16.2.0/build/netcoreapp1.0" t="Include">
+      <e p="Microsoft.NET.Test.Sdk.Program.cs" t="Include" />
+    </e>
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/netcoreapp1.0/xunit.runner.reporters.netcoreapp10.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/netcoreapp1.0/xunit.runner.utility.netcoreapp10.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/netcoreapp1.0/xunit.runner.visualstudio.dotnetcore.testadapter.dll" t="Include" />
+    <e p="$PROJECT_DIR$" t="IncludeFlat">
+      <e p="client-app/node_modules/@babel/parser" t="IncludeRecursive" />
+      <e p="client-app/node_modules/@babel/types" t="IncludeRecursive" />
+      <e p="client-app/node_modules/@jest/console" t="IncludeRecursive" />
+      <e p="client-app/node_modules/@jest/fake-timers" t="IncludeRecursive" />
+      <e p="client-app/node_modules/@jest/source-map" t="IncludeRecursive" />
+      <e p="client-app/node_modules/@jest/test-result" t="IncludeRecursive" />
+      <e p="client-app/node_modules/@jest/types" t="IncludeRecursive" />
+      <e p="client-app/node_modules/@mrmlnc/readdir-enhanced" t="IncludeRecursive" />
+      <e p="client-app/node_modules/@nodelib/fs.stat" t="IncludeRecursive" />
+      <e p="client-app/node_modules/@semantic-ui-react/event-stack" t="IncludeRecursive" />
+      <e p="client-app/node_modules/@stardust-ui/react-component-event-listener" t="IncludeRecursive" />
+      <e p="client-app/node_modules/@stardust-ui/react-component-ref" t="IncludeRecursive" />
+      <e p="client-app/node_modules/@testing-library/jest-dom" t="IncludeRecursive" />
+      <e p="client-app/node_modules/@testing-library/React" t="IncludeRecursive" />
+      <e p="client-app/node_modules/@testing-library/user-event" t="IncludeRecursive" />
+      <e p="client-app/node_modules/@types" t="IncludeRecursive">
+        <e p="babel__generator" t="IncludeRecursive" />
+        <e p="babel__template" t="IncludeRecursive" />
+        <e p="babel__traverse" t="IncludeRecursive" />
+        <e p="events" t="IncludeRecursive" />
+        <e p="istanbul-lib-coverage" t="IncludeRecursive" />
+        <e p="istanbul-lib-report" t="IncludeRecursive" />
+        <e p="jest" t="IncludeRecursive" />
+        <e p="minimatch" t="IncludeRecursive" />
+        <e p="node" t="IncludeRecursive" />
+        <e p="prop-types" t="IncludeRecursive" />
+        <e p="React" t="IncludeRecursive" />
+        <e p="react-dom" t="IncludeRecursive" />
+        <e p="testing-library__dom" t="IncludeRecursive" />
+        <e p="yargs-parser" t="IncludeRecursive" />
+      </e>
+      <e p="client-app/node_modules/@typescript-eslint/experimental-utils" t="IncludeRecursive" />
+      <e p="client-app/node_modules/@typescript-eslint/parser" t="IncludeRecursive" />
+      <e p="client-app/node_modules/@typescript-eslint/typescript-estree" t="IncludeRecursive" />
+      <e p="client-app/node_modules/axios" t="IncludeRecursive" />
+      <e p="client-app/node_modules/babel-jest" t="IncludeRecursive" />
+      <e p="client-app/node_modules/chalk" t="IncludeRecursive" />
+      <e p="client-app/node_modules/chokidar" t="IncludeRecursive" />
+      <e p="client-app/node_modules/create-react-context" t="IncludeRecursive" />
+      <e p="client-app/node_modules/csstype" t="IncludeRecursive" />
+      <e p="client-app/node_modules/diff-sequences" t="IncludeRecursive" />
+      <e p="client-app/node_modules/dotenv" t="IncludeRecursive" />
+      <e p="client-app/node_modules/dotenv-expand" t="IncludeRecursive" />
+      <e p="client-app/node_modules/fast-glob" t="IncludeRecursive" />
+      <e p="client-app/node_modules/fsevents" t="IncludeRecursive" />
+      <e p="client-app/node_modules/html-webpack-plugin" t="IncludeRecursive" />
+      <e p="client-app/node_modules/jest" t="IncludeRecursive" />
+      <e p="client-app/node_modules/jest-diff" t="IncludeRecursive" />
+      <e p="client-app/node_modules/jest-get-type" t="IncludeRecursive" />
+      <e p="client-app/node_modules/jest-haste-map" t="IncludeRecursive" />
+      <e p="client-app/node_modules/jest-message-util" t="IncludeRecursive" />
+      <e p="client-app/node_modules/jest-mock" t="IncludeRecursive" />
+      <e p="client-app/node_modules/jest-resolve" t="IncludeRecursive" />
+      <e p="client-app/node_modules/jest-serializer" t="IncludeRecursive" />
+      <e p="client-app/node_modules/jest-util" t="IncludeRecursive" />
+      <e p="client-app/node_modules/jest-worker" t="IncludeRecursive" />
+      <e p="client-app/node_modules/keyboard-key" t="IncludeRecursive" />
+      <e p="client-app/node_modules/popper.js" t="IncludeRecursive" />
+      <e p="client-app/node_modules/pretty-error" t="IncludeRecursive" />
+      <e p="client-app/node_modules/pretty-format" t="IncludeRecursive" />
+      <e p="client-app/node_modules/React" t="IncludeRecursive" />
+      <e p="client-app/node_modules/react-dom" t="IncludeRecursive" />
+      <e p="client-app/node_modules/react-popper" t="IncludeRecursive" />
+      <e p="client-app/node_modules/react-scripts" t="IncludeRecursive" />
+      <e p="client-app/node_modules/realpath-native" t="IncludeRecursive" />
+      <e p="client-app/node_modules/semantic-ui-react" t="IncludeRecursive" />
+      <e p="client-app/node_modules/source-map" t="IncludeRecursive" />
+      <e p="client-app/node_modules/typescript" t="IncludeRecursive">
+        <e p="lib/lib.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.dom.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.dom.iterable.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2015.collection.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2015.core.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2015.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2015.generator.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2015.iterable.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2015.promise.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2015.proxy.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2015.reflect.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2015.symbol.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2015.symbol.wellknown.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2016.array.include.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2016.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2016.full.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2017.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2017.full.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2017.intl.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2017.object.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2017.sharedmemory.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2017.string.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2017.typedarrays.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2018.asyncgenerator.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2018.asynciterable.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2018.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2018.full.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2018.intl.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2018.promise.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2018.regexp.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2019.array.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2019.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2019.full.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2019.object.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2019.string.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2019.symbol.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2020.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2020.full.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2020.string.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es2020.symbol.wellknown.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es5.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.es6.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.esnext.array.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.esnext.asynciterable.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.esnext.bigint.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.esnext.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.esnext.full.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.esnext.intl.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.esnext.symbol.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.scripthost.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.webworker.d.ts" t="IncludeRecursive" />
+        <e p="lib/lib.webworker.importscripts.d.ts" t="IncludeRecursive" />
+      </e>
+      <e p="client-app/node_modules/upath" t="IncludeRecursive" />
+      <e p="client-app/node_modules/worker-farm" t="IncludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="ReactProject.API" t="IncludeRecursive">
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Controllers" t="Include">
+          <e p="ValuesController.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="ReactProject.API.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="ReactProject.API.csproj" t="IncludeRecursive" />
+        <e p="Startup.cs" t="Include" />
+      </e>
+      <e p="ReactProject.Application" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Class1.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.0" t="Include">
+              <e p="ReactProject.Application.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="ReactProject.Application.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="ReactProject.Data" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="DataContext.cs" t="Include" />
+        <e p="Migrations" t="Include">
+          <e p="20200318160135_Initial.cs" t="Include" />
+          <e p="20200318160135_Initial.Designer.cs" t="Include" />
+          <e p="20200318162442_SeedValues.cs" t="Include" />
+          <e p="20200318162442_SeedValues.Designer.cs" t="Include" />
+          <e p="DataContextModelSnapshot.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.0" t="Include">
+              <e p="ReactProject.Data.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="ReactProject.Data.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="ReactProject.Domain" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.0" t="Include">
+              <e p="ReactProject.Domain.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="ReactProject.Domain.csproj" t="IncludeRecursive" />
+        <e p="Value.cs" t="Include" />
+      </e>
+      <e p="ReactProject.sln" t="IncludeFlat" />
+      <e p="ReactProject.Test" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="ReactProject.Test.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="ReactProject.Test.csproj" t="IncludeRecursive" />
+        <e p="UnitTest1.cs" t="Include" />
+      </e>
+    </e>
+    <e p="$USER_HOME$/Library/Caches/Rider2019.3/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.3/resharper-host/local/Transient/ReSharperHost/v193/SolutionCaches/_ReactProject.605028124.00" t="ExcludeRecursive" />
+    <e p="$APPLICATION_CONFIG_DIR$/consoles/db" t="IncludeRecursive" />
+    <e p="$APPLICATION_CONFIG_DIR$/extensions" t="IncludeRecursive" />
+    <e p="$APPLICATION_CONFIG_DIR$/scratches" t="IncludeRecursive" />
+  </component>
+</project>
