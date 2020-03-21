@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ReactProject.Data;
 
 namespace ReactProject.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20200321055704_ActivityEntityAdded")]
+    partial class ActivityEntityAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,7 +36,7 @@ namespace ReactProject.Data.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Description")
+                    b.Property<string>("Decription")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
@@ -46,6 +48,38 @@ namespace ReactProject.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Activities");
+                });
+
+            modelBuilder.Entity("ReactProject.Domain.Value", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Values");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Value 101"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Value 102"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Value 103"
+                        });
                 });
 #pragma warning restore 612, 618
         }

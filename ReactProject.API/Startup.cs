@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -11,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using ReactProject.Application.Activities;
 using ReactProject.Data;
 
 namespace ReactProject.API
@@ -39,6 +41,7 @@ namespace ReactProject.API
                         policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
                     });
             });
+            services.AddMediatR(typeof(List.Query).Assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
