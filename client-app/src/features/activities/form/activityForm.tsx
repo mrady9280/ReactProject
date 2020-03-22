@@ -11,7 +11,7 @@ interface IProps{
 const ActivityForm:React.FC<IProps> = ({setEditMode,selectedActivity}) => {
     const [activities, setActivities] = useState<Activity>(new Activity());
     useEffect(() => {
-        if(selectedActivity){
+        if(selectedActivity && selectedActivity.id.length > 0){
             setActivities(selectedActivity);
         }else{
             setActivities(new Activity());

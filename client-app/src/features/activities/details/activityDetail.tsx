@@ -1,11 +1,11 @@
 import React from "react";
 import {Button, ButtonGroup, Card, Icon, Image} from "semantic-ui-react";
-import {IActivity} from "../../../app/models/activity";
+import {Activity, IActivity} from "../../../app/models/activity";
 
 interface IProp {
     selectedActivity:IActivity;
     setEditMode: (editMode:boolean) => void;
-    setSelectedActivity: (activity:IActivity|null)=> void;
+    setSelectedActivity: (activity:IActivity)=> void;
 }
 const ActivityDetails: React.FC<IProp> = ({selectedActivity,setEditMode, setSelectedActivity}) => {
     return (
@@ -23,7 +23,7 @@ const ActivityDetails: React.FC<IProp> = ({selectedActivity,setEditMode, setSele
             <Card.Content extra>
                <ButtonGroup widths={2}>
                    <Button basic color='blue' content={'Edit'} onClick={()=> setEditMode(true)}/>
-                   <Button  basic color='grey' content={'Cancel'} onClick={()=> setSelectedActivity(null)} />
+                   <Button  basic color='grey' content={'Cancel'} onClick={()=> setSelectedActivity(new Activity())} />
                </ButtonGroup>
             </Card.Content>
         </Card>

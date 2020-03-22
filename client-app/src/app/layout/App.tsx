@@ -1,29 +1,37 @@
 import React, {useState, useEffect, Fragment} from 'react';
 import Axios from "axios";
 import {Container, Header, Icon, List} from "semantic-ui-react";
-import {IActivity} from "../models/activity";
+import {Activity, IActivity} from "../models/activity";
 import NavBar from "../../features/nav/navBar";
 import ActivityDashBoard from "../../features/activities/dashBoard/activityDashBoard";
 
 
 const App = () => {
 
-    const [activities, setActivities] = useState<IActivity[]>([]);
+    //States
+    const [activities, setActivities] = useState<IActivity[]>(new Array<Activity>());
+    const [viewMode, setViewMode] = useState(false);
+    const [editMode, setEditMode] = useState(false);
+    const [createMode, setCreateMode] = useState(false);
+    const [selectedActivity, setSelectedActivity] = useState<IActivity>(new Activity());
+    
+    //Affect
     useEffect(() => {
         Axios.get<IActivity[]>("http://localhost:5000/api/activities").then((response) => {
             setActivities(response.data);
         });
     }, []);
-    const [selectedActivity, setSelectedActivity] = useState<IActivity | null>(null);
+    
+    //Handlers
     const handleSelectedActivity = (id: string) => {
         setEditMode(false);
         setSelectedActivity(activities.filter(e => e.id === id)[0]);
     };
     const handleCreateMode= ()=>{
-      setSelectedActivity(null);
+      setSelectedActivity(new Activity());
       setEditMode(true);
     };
-    const [editMode, setEditMode] = useState(false);
+    
 
 
     return (
