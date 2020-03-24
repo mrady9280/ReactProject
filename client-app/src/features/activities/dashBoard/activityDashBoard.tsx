@@ -1,26 +1,23 @@
 import React from "react";
-import {Container, Grid, GridColumn, List} from "semantic-ui-react";
+import {Grid, GridColumn, List} from "semantic-ui-react";
 import {IActivity} from "../../../app/models/activity";
 import Activity from "./activity";
 import ActivityDetails from "../details/activityDetail";
 import ActivityForm from "../form/activityForm";
+import {Mode} from "../../../app/models/modes";
 
 interface IProps {
     activities: IActivity[];
-    selectActivity: (id: string) => void;
-    selectedActivity: IActivity;
-    editMode: boolean;
-    setEditMode: (editMode: boolean) => void;
-    setSelectedActivity: (activity: IActivity) => void;
+    activity: IActivity;
+    mode: Mode;
+    handleMode: (mode: Mode, act: IActivity) => void;
 }
 
 const ActivityDashBoard: React.FC<IProps> = ({
                                                  activities,
-                                                 selectActivity,
-                                                 selectedActivity,
-                                                 editMode,
-                                                 setEditMode,
-                                                 setSelectedActivity
+                                                 activity,
+                                                 mode,
+                                                 handleMode,
                                              }) => {
     return (
         <Grid>
@@ -28,17 +25,17 @@ const ActivityDashBoard: React.FC<IProps> = ({
                 <List>
                     {activities.map((activity) => (
 
-                        <Activity activity={activity} selectActivity={selectActivity}/>
+                        <Activity activity={activity} key={activity.id}
+                                  handleMode={handleMode}/>
                     ))}
                 </List>
             </GridColumn>
             <GridColumn width={6}>
-                {selectedActivity  && selectedActivity.id.length != 0 && !editMode &&
-                <ActivityDetails selectedActivity={selectedActivity} setEditMode={setEditMode}
-                                 setSelectedActivity={setSelectedActivity}/>
+                {activity.id.length > 0 && mode === Mode.view &&
+                <ActivityDetails activity={activity} handleMode={handleMode}/>
                 }
-                {editMode &&
-                <ActivityForm setEditMode={setEditMode} selectedActivity={selectedActivity}/>
+                { (mode === Mode.edit || mode === Mode.create) &&
+                <ActivityForm handleMode={handleMode} activity={activity}/>
                 }
             </GridColumn>
         </Grid>

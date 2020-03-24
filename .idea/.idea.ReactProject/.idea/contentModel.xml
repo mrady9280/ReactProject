@@ -37,6 +37,7 @@
         <e p="React" t="IncludeRecursive" />
         <e p="react-dom" t="IncludeRecursive" />
         <e p="testing-library__dom" t="IncludeRecursive" />
+        <e p="uuid" t="IncludeRecursive" />
         <e p="yargs-parser" t="IncludeRecursive" />
       </e>
       <e p="client-app/node_modules/@typescript-eslint/experimental-utils" t="IncludeRecursive" />
@@ -130,6 +131,7 @@
         <e p="lib/lib.webworker.importscripts.d.ts" t="IncludeRecursive" />
       </e>
       <e p="client-app/node_modules/upath" t="IncludeRecursive" />
+      <e p="client-app/node_modules/uuid" t="IncludeRecursive" />
       <e p="client-app/node_modules/worker-farm" t="IncludeRecursive" />
       <e p="packages" t="ExcludeRecursive" />
       <e p="ReactProject.API" t="IncludeRecursive">

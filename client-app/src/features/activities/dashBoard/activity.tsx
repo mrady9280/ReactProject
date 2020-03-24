@@ -1,12 +1,17 @@
 import React from "react";
-import {Item, Image, Button, Label, Segment} from "semantic-ui-react";
+import {Item, Button, Label, Segment} from "semantic-ui-react";
 import {IActivity} from "../../../app/models/activity";
+import {Mode} from "../../../app/models/modes";
 
-interface IProps{
-    activity:IActivity;
-    selectActivity: (id:string)=> void;
+interface IProps {
+    activity: IActivity;
+    handleMode: (mode: Mode,act:IActivity) => void;
 }
-const Activity:React.FC<IProps> = ({activity,selectActivity}) => {
+
+const Activity: React.FC<IProps> = ({activity, handleMode}) => {
+    const handleViewMode = (id: string) => {
+        handleMode(Mode.view,activity);
+    };
     return (
         <Segment clearing>
             <Item.Group divided>
@@ -19,7 +24,8 @@ const Activity:React.FC<IProps> = ({activity,selectActivity}) => {
                             <div>{activity.city}, {activity.venue}</div>
                         </Item.Description>
                         <Item.Extra>
-                            <Button content={'View'} floated={'right'} color={'blue'} onClick={()=> selectActivity(activity.id)}/>
+                            <Button content={'View'} floated={'right'} color={'blue'}
+                                    onClick={() => handleViewMode(activity.id)}/>
                             <Label basic content={activity.category}/>
                         </Item.Extra>
                     </Item.Content>
