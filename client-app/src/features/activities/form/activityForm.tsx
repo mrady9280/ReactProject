@@ -1,4 +1,4 @@
-import React, {FormEvent, useEffect, useState} from "react";
+import React, {FormEvent, useState} from "react";
 import {Button, Form, FormInput, FormTextArea, Segment} from "semantic-ui-react";
 import {Activity, IActivity} from "../../../app/models/activity";
 import {Mode} from "../../../app/models/modes";
@@ -10,43 +10,43 @@ interface IProps {
 
 const ActivityForm: React.FC<IProps> = ({
                                             handleMode,
-                                            activity
+                                            activity:InitialFormState
                                         }) => {
-    const [selectedActivity, setActivity] = useState<IActivity>(new Activity());
-
-    useEffect(()=>{
-        if(activity.id.length > 0){
-            setActivity(activity);
+    
+    const initializeForm = ()=>{
+        if(InitialFormState.id.length > 0 ){
+            return InitialFormState;
         }else{
-            setActivity(new Activity());
+            return new Activity();
         }
-    },[]);
+    };
+    const [stateActivity, setActivity] = useState<IActivity>(initializeForm);
+
 
     const handleInputChange = (event: FormEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        console.log(event);
         const {name, value} = event.currentTarget;
-        setActivity({...activity, [name]: value})
+        setActivity({...stateActivity, [name]: value})
     };
     const handleSubmit = () => {
-        console.log(activity);
+        console.log(stateActivity);
     };
     return (
         <Segment clearing>
             <Form onSubmit={handleSubmit}>
-                <FormInput placeholder={'Title'} name='title' value={activity?.title}
+                <FormInput placeholder={'Title'} name='title' value={stateActivity.title}
                            onChange={handleInputChange}/>
-                <FormTextArea rows={2} placeholder={'Description'} value={activity?.description}
+                <FormTextArea rows={2} placeholder={'Description'} name={'description'} value={stateActivity.description}
                               onChange={handleInputChange}/>
-                <FormInput placeholder={'Category'} name='category' value={activity?.category}
+                <FormInput placeholder={'Category'} name='category' value={stateActivity.category}
                            onChange={handleInputChange}/>
-                <FormInput placeholder={'Date'} name={'date'} value={activity?.date}
+                <FormInput placeholder={'Date'} name={'date'} value={stateActivity.date}
                            onChange={handleInputChange}/>
-                <FormInput placeholder={'City'} name={'city'} value={activity?.city}
+                <FormInput placeholder={'City'} name={'city'} value={stateActivity.city}
                            onChange={handleInputChange}/>
-                <FormInput placeholder={'Venue'} name={'venue'} value={activity?.venue}
+                <FormInput placeholder={'Venue'} name={'venue'} value={stateActivity.venue}
                            onChange={handleInputChange}/>
                 <Button floated={'right'} positive type={'submit'} content={'Save'}/>
-                <Button floated={'right'} type={'button'} content={'Cancel'} onClick={() => handleMode(Mode.none,selectedActivity)}/>
+                <Button floated={'right'} type={'button'} content={'Cancel'} onClick={() => handleMode(Mode.none,stateActivity)}/>
             </Form>
         </Segment>
     )

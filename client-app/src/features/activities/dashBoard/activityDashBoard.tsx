@@ -19,6 +19,7 @@ const ActivityDashBoard: React.FC<IProps> = ({
                                                  mode,
                                                  handleMode,
                                              }) => {
+
     return (
         <Grid>
             <GridColumn width={10}>
@@ -34,8 +35,13 @@ const ActivityDashBoard: React.FC<IProps> = ({
                 {activity.id.length > 0 && mode === Mode.view &&
                 <ActivityDetails activity={activity} handleMode={handleMode}/>
                 }
-                { (mode === Mode.edit || mode === Mode.create) &&
-                <ActivityForm handleMode={handleMode} activity={activity}/>
+                {
+                    mode === Mode.create &&
+                    <ActivityForm handleMode={handleMode} activity={activity}/>
+                }
+                {
+                    mode === Mode.edit &&
+                    <ActivityForm handleMode={handleMode} activity={activity}/>
                 }
             </GridColumn>
         </Grid>

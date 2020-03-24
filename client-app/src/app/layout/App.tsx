@@ -29,8 +29,10 @@ const App = () => {
                 break;
             }
             case Mode.create : {
+                
                 setActivity(new Activity());
                 setMode(Mode.create);
+                console.log(mode);
                 break;
             }
             case Mode.edit : {

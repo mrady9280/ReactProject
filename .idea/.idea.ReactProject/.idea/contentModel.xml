@@ -210,6 +210,8 @@
           </e>
         </e>
         <e p="ReactProject.Domain.csproj" t="IncludeRecursive" />
+        <e p="TransportationSearchRequest.cs" t="Include" />
+        <e p="TransportationSearchResponse.cs" t="Include" />
       </e>
       <e p="ReactProject.sln" t="IncludeFlat" />
       <e p="ReactProject.Test" t="IncludeRecursive">
