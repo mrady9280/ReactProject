@@ -6,11 +6,13 @@ import {Mode} from "../../../app/models/modes";
 interface IProps {
     activity: IActivity;
     handleMode: (mode: Mode,act:IActivity) => void;
+    handleDeleteActivity: (id: string) => void;
 }
 
-const Activity: React.FC<IProps> = ({activity, handleMode}) => {
-    const handleViewMode = (id: string) => {
-        handleMode(Mode.view,activity);
+const Activity: React.FC<IProps> = ({activity, handleMode,handleDeleteActivity}) => {
+    const handleDelete = (id: string) => {
+        handleDeleteActivity(activity.id);
+        handleMode(Mode.none,activity);
     };
     return (
         <Segment clearing>
@@ -25,7 +27,9 @@ const Activity: React.FC<IProps> = ({activity, handleMode}) => {
                         </Item.Description>
                         <Item.Extra>
                             <Button content={'View'} floated={'right'} color={'blue'}
-                                    onClick={() => handleViewMode(activity.id)}/>
+                                    onClick={() => handleMode(Mode.view,activity)}/>
+                            <Button content={'Delete'} floated={'right'} color={'red'}
+                                    onClick={() => handleDelete(activity.id)}/>
                             <Label basic content={activity.category}/>
                         </Item.Extra>
                     </Item.Content>

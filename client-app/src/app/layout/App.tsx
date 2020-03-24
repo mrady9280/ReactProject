@@ -16,12 +16,17 @@ const App = () => {
     //Affect
     useEffect(() => {
         Axios.get<IActivity[]>("http://localhost:5000/api/activities").then((response) => {
-            setActivities(response.data);
+            let acts = Array<IActivity>();
+            response.data.forEach(act =>{
+               act.date = act.date.split('.')[0];
+               acts.push(act);
+            });
+            setActivities(acts);
         });
     }, []);
 
     //Handlers
-    const handleMode = (mode: Mode,act: IActivity = new Activity()) => {
+    const handleMode = (mode: Mode, act: IActivity = new Activity()) => {
         switch (mode) {
             case Mode.view : {
                 setActivity(act);
@@ -29,7 +34,7 @@ const App = () => {
                 break;
             }
             case Mode.create : {
-                
+
                 setActivity(new Activity());
                 setMode(Mode.create);
                 console.log(mode);
@@ -47,6 +52,15 @@ const App = () => {
             }
         }
     };
+    const handleCreateActivity = (act:IActivity) => {
+      setActivities([...activities,act]);  
+    };
+    const handleEditActivity = (act:IActivity) =>{
+      setActivities([...activities.filter(a=> a.id !== act.id),act])
+    };
+    const handleDeleteActivity = (id:string)=>{
+        setActivities([...activities.filter(a=> a.id !== id)]);
+    };
 
 
     return (
@@ -58,6 +72,9 @@ const App = () => {
                     activity={activity!}
                     mode={mode}
                     handleMode={handleMode}
+                    handleCreateActivity={handleCreateActivity}
+                    handleEditActivity={handleEditActivity}
+                    handleDeleteActivity={handleDeleteActivity}
                 />
             </Container>
         </Fragment>

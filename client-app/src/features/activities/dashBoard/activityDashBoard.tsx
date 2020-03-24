@@ -11,6 +11,9 @@ interface IProps {
     activity: IActivity;
     mode: Mode;
     handleMode: (mode: Mode, act: IActivity) => void;
+    handleCreateActivity: (activity: IActivity) => void;
+    handleEditActivity: (activity: IActivity) => void;
+    handleDeleteActivity: (id: string) => void;
 }
 
 const ActivityDashBoard: React.FC<IProps> = ({
@@ -18,6 +21,9 @@ const ActivityDashBoard: React.FC<IProps> = ({
                                                  activity,
                                                  mode,
                                                  handleMode,
+                                                 handleCreateActivity,
+                                                 handleEditActivity,
+                                                 handleDeleteActivity
                                              }) => {
 
     return (
@@ -27,7 +33,7 @@ const ActivityDashBoard: React.FC<IProps> = ({
                     {activities.map((activity) => (
 
                         <Activity activity={activity} key={activity.id}
-                                  handleMode={handleMode}/>
+                                  handleMode={handleMode} handleDeleteActivity={handleDeleteActivity}/>
                     ))}
                 </List>
             </GridColumn>
@@ -36,13 +42,12 @@ const ActivityDashBoard: React.FC<IProps> = ({
                 <ActivityDetails activity={activity} handleMode={handleMode}/>
                 }
                 {
-                    mode === Mode.create &&
-                    <ActivityForm handleMode={handleMode} activity={activity}/>
+                    (mode === Mode.create || mode === Mode.edit) &&
+                    <ActivityForm handleMode={handleMode} activity={activity}
+                                  handleCreateActivity={handleCreateActivity} mode={mode}
+                                  handleEditActivity={handleEditActivity} key={activity.id}/>
                 }
-                {
-                    mode === Mode.edit &&
-                    <ActivityForm handleMode={handleMode} activity={activity}/>
-                }
+
             </GridColumn>
         </Grid>
     )
