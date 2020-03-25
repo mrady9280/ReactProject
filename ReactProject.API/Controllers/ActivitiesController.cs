@@ -38,7 +38,6 @@ namespace ReactProject.API.Controllers
         [HttpPost]
         public async Task<ActionResult<Unit>> Create([FromBody] Create.Command activity)
         {
-            activity.Id = Guid.NewGuid();
             activity.Date = DateTime.Now;
             return Ok(await _mediator.Send(activity));
         }

@@ -1,0 +1,11 @@
+@startuml
+class ActivitiesController {
+    + ActivitiesController(logger:ILogger<ActivitiesController>, mediator:IMediator)
+    + <<async>> List() : Task<ActionResult<List<Activity>>>
+    + <<async>> Details(id:Guid) : Task<ActionResult<Activity>>
+    + <<async>> Create(activity:Create.Command) : Task<ActionResult<Unit>>
+    + <<async>> Edit(id:Guid, activity:Edit.Command) : Task<ActionResult<Unit>>
+    + <<async>> Delete(id:Guid) : Task<ActionResult<Unit>>
+}
+ControllerBase <|-- ActivitiesController
+@enduml

@@ -1,0 +1,11 @@
+@startuml
+class Activity {
+    + Title : string <<get>> <<set>>
+    + Description : string <<get>> <<set>>
+    + Category : string <<get>> <<set>>
+    + City : string <<get>> <<set>>
+    + Venue : string <<get>> <<set>>
+}
+Activity --> "Id" Guid
+Activity --> "Date" DateTime
+@enduml

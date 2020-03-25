@@ -1,33 +1,37 @@
-import React from "react";
+import React, {useContext} from "react";
 import {Button, ButtonGroup, Card, Image} from "semantic-ui-react";
-import {Activity, IActivity} from "../../../app/models/activity";
+import {Activity} from "../../../app/models/activity";
 import {Mode} from "../../../app/models/modes";
+import activityStore from "../../../app/stores/activityStore";
+import {observer} from "mobx-react-lite";
 
 interface IProp {
-    activity:IActivity;
-    handleMode: (mode:Mode,act:IActivity) => void;
 }
-const ActivityDetails: React.FC<IProp> = ({activity,handleMode}) => {
+
+const ActivityDetails: React.FC<IProp> = () => {
+    const store = useContext(activityStore);
     return (
         <Card fluid>
-            <Image src={`/assets/categoryImages/${activity?.category}.jpg`} wrapped ui={false} />
+            <Image src={`/assets/categoryImages/${store.activity?.category}.jpg`} wrapped ui={false}/>
             <Card.Content>
-                <Card.Header>{activity.title}</Card.Header>
+                <Card.Header>{store.activity.title}</Card.Header>
                 <Card.Meta>
-                    <span>{activity.date}</span>
+                    <span>{store.activity.date}</span>
                 </Card.Meta>
                 <Card.Description>
-                    {activity.description}
+                    {store.activity.description}
                 </Card.Description>
             </Card.Content>
             <Card.Content extra>
-               <ButtonGroup widths={2}>
-                   <Button basic color='blue' content={'Edit'} onClick={()=> handleMode(Mode.edit,activity)}/>
-                   <Button  basic color='grey' content={'Cancel'} onClick={()=> handleMode(Mode.none,new Activity())} />
-               </ButtonGroup>
+                <ButtonGroup widths={2}>
+                    <Button basic color='blue' content={'Edit'}
+                            onClick={() => store.handleMode(Mode.edit, store.activity)}/>
+                    <Button basic color='grey' content={'Cancel'}
+                            onClick={() => store.handleMode(Mode.none, new Activity())}/>
+                </ButtonGroup>
             </Card.Content>
         </Card>
     )
 };
 
-export default ActivityDetails
+export default observer(ActivityDetails)

@@ -11,6 +11,7 @@
       <e p="client-app/node_modules/@babel/parser" t="IncludeRecursive" />
       <e p="client-app/node_modules/@babel/types" t="IncludeRecursive" />
       <e p="client-app/node_modules/@jest/console" t="IncludeRecursive" />
+      <e p="client-app/node_modules/@jest/environment" t="IncludeRecursive" />
       <e p="client-app/node_modules/@jest/fake-timers" t="IncludeRecursive" />
       <e p="client-app/node_modules/@jest/source-map" t="IncludeRecursive" />
       <e p="client-app/node_modules/@jest/test-result" t="IncludeRecursive" />
@@ -57,6 +58,7 @@
       <e p="client-app/node_modules/html-webpack-plugin" t="IncludeRecursive" />
       <e p="client-app/node_modules/jest" t="IncludeRecursive" />
       <e p="client-app/node_modules/jest-diff" t="IncludeRecursive" />
+      <e p="client-app/node_modules/jest-environment-jsdom" t="IncludeRecursive" />
       <e p="client-app/node_modules/jest-get-type" t="IncludeRecursive" />
       <e p="client-app/node_modules/jest-haste-map" t="IncludeRecursive" />
       <e p="client-app/node_modules/jest-message-util" t="IncludeRecursive" />
@@ -66,6 +68,8 @@
       <e p="client-app/node_modules/jest-util" t="IncludeRecursive" />
       <e p="client-app/node_modules/jest-worker" t="IncludeRecursive" />
       <e p="client-app/node_modules/keyboard-key" t="IncludeRecursive" />
+      <e p="client-app/node_modules/mobx" t="IncludeRecursive" />
+      <e p="client-app/node_modules/mobx-react-lite" t="IncludeRecursive" />
       <e p="client-app/node_modules/popper.js" t="IncludeRecursive" />
       <e p="client-app/node_modules/pretty-error" t="IncludeRecursive" />
       <e p="client-app/node_modules/pretty-format" t="IncludeRecursive" />
@@ -211,6 +215,7 @@
         </e>
         <e p="ReactProject.Domain.csproj" t="IncludeRecursive" />
         <e p="TransportationSearchRequest.cs" t="Include" />
+        <e p="TransportationSearchResponse - Copy.cs" t="Include" />
         <e p="TransportationSearchResponse.cs" t="Include" />
       </e>
       <e p="ReactProject.sln" t="IncludeFlat" />

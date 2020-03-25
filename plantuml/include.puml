@@ -1,0 +1,352 @@
+@startuml
+class DataContext {
+    + DataContext(options:DbContextOptions)
+}
+class "DbSet`1"<T> {
+}
+DbContext <|-- DataContext
+DataContext --> "Activities<Activity>" "DbSet`1"
+class Seed {
+    + {static} SeedData(context:DataContext) : void
+}
+class Startup {
+    + Startup(configuration:IConfiguration)
+    + ConfigureServices(services:IServiceCollection) : void
+    + Configure(app:IApplicationBuilder, env:IWebHostEnvironment) : void
+}
+Startup --> "Configuration" IConfiguration
+class Program {
+    + {static} Main(args:string[]) : void
+    + {static} CreateHostBuilder(args:string[]) : IHostBuilder
+}
+class UnitTest1 {
+    + Test1() : void
+}
+class Activity {
+    + Title : string <<get>> <<set>>
+    + Description : string <<get>> <<set>>
+    + Category : string <<get>> <<set>>
+    + City : string <<get>> <<set>>
+    + Venue : string <<get>> <<set>>
+}
+Activity --> "Id" Guid
+Activity --> "Date" DateTime
+class TransportationSearchRequest {
+    + Token : string <<get>> <<set>>
+    + RouteCode : string <<get>> <<set>>
+    + StartDate : string <<get>> <<set>>
+    + Adults : int <<get>> <<set>>
+    + Children : int <<get>> <<set>>
+    + ModelFrom : string <<get>> <<set>>
+    + ModelTo : string <<get>> <<set>>
+    + VehicleTypeCode : string <<get>> <<set>>
+    + CategoryCode : string <<get>> <<set>>
+}
+class "List`1"<T> {
+}
+TransportationSearchRequest --> "AdditionalServices<string>" "List`1"
+class TranspostationSearchResponse {
+}
+class Transportation <<partial>> {
+    + Token : string <<get>> <<set>>
+    + Vendor : string <<get>> <<set>>
+    + Provider : string <<get>> <<set>>
+    + CompanyName : string <<get>> <<set>>
+    + RouteName : string <<get>> <<set>>
+    + TermsAndConditions : string <<get>> <<set>>
+    + StartDate : string <<get>> <<set>>
+}
+class VehicleType <<partial>> {
+    + VehicleTypeCode : string <<get>> <<set>>
+}
+class Category <<partial>> {
+    + CategoryCode : string <<get>> <<set>>
+    + CategoryName : string <<get>> <<set>>
+    + AvailableQuantity : int <<get>> <<set>>
+    + MaxPaxCapacity : int <<get>> <<set>>
+}
+class ItemBreakdown {
+    + Date : DateTime? <<get>> <<set>>
+    + ExchangeRate : decimal <<get>> <<set>>
+    + LocalAmount : decimal <<get>> <<set>>
+    + LocalCurrencyCode : string <<get>> <<set>>
+    + Quantity : int <<get>> <<set>>
+    + RoomNumber : int <<get>> <<set>>
+    + SurchargeTypeId : int <<get>> <<set>>
+    + TaxTypeId : int <<get>> <<set>>
+    + UsdAmount : decimal <<get>> <<set>>
+    + TaxProtoTypeId : int <<get>> <<set>>
+}
+class AdditionalService <<partial>> {
+    + Code : long <<get>> <<set>>
+    + Description : string <<get>> <<set>>
+}
+class Config {
+    + Key : string <<get>> <<set>>
+    + Value : string <<get>> <<set>>
+}
+class Policy <<partial>> {
+    + Type : string <<get>> <<set>>
+    + Name : string <<get>> <<set>>
+    + IsCurrentPolicy : bool <<get>> <<set>>
+    + IsNoShow : bool <<get>> <<set>>
+}
+class DateCriteria {
+    + StartDate : string <<get>> <<set>>
+    + EndDate : string <<get>> <<set>>
+}
+enum BreakdownType {
+    None= 0,
+    RoomCharge= 1,
+    Surcharge= 2,
+    CancellationFee= 3,
+    ExtraBed= 4,
+    Discount= 5,
+    BestPriceGuarantee= 6,
+    StaffDiscount= 7,
+    CancellationPolicy= 8,
+    Other= 9,
+    NoshowFee= 10,
+    TravelVisa= 11,
+    GroundTransportation= 12,
+}
+enum BreakdownItemId {
+    None= 0,
+    NetExclusive= 1,
+    Tax= 2,
+    Margin= 3,
+    Commission= 4,
+    ProcessingFee= 5,
+    DiscountPromotion= 6,
+    Uplift= 7,
+    AffiliateCommission= 8,
+    Downlift= 9,
+    NetInclusive= 10,
+    SalesExclusive= 11,
+    SalesInclusive= 12,
+    Payment= 13,
+    AccruedRewardPoints= 14,
+    YcsPromotion= 15,
+    Fee= 16,
+    PartnerDiscount= 17,
+    PartnerDiscountToBePaid= 18,
+    ExchangeRateDifference= 19,
+    BankCharges= 20,
+    ConcurExpense= 21,
+    ConcurTax= 22,
+    ConcurAdvance= 23,
+    UpcPayment= 24,
+    UpcAdjustment= 25,
+    StaffDiscount= 26,
+    BestPrice= 27,
+    OtherAdjustment= 28,
+    Ebe= 29,
+    UpcOvercharge= 30,
+    APClearing= 31,
+    InputGst= 32,
+    FxGainAndLoss= 33,
+    WexUplift= 34,
+    TransactionCost= 35,
+    CashInTransit= 36,
+    UpcCostAdjustment= 37,
+    B2BCommission= 38,
+    LoyaltyDiscount= 39,
+    AccRateDifference= 40,
+    ReferenceSalesInclusive= 41,
+    AgodaAgencyCommission= 42,
+    TotMarginTaxCollected= 43,
+    TotMarginFeeCollected= 44,
+}
+class Model <<partial>> {
+    + From : long <<get>> <<set>>
+    + To : long <<get>> <<set>>
+}
+class "List`1"<T> {
+}
+TranspostationSearchResponse --> "Transportations<Transportation>" "List`1"
+Transportation --> "VehicleTypes<VehicleType>" "List`1"
+Transportation --> "Policies<Policy>" "List`1"
+VehicleType --> "Categories<Category>" "List`1"
+Category --> "Model" Model
+Category --> "DisplayRateInfo<ItemBreakdown>" "List`1"
+Category --> "AdditionalServices<AdditionalService>" "List`1"
+ItemBreakdown --> "ItemId" BreakdownItemId
+ItemBreakdown --> "Type" BreakdownType
+AdditionalService --> "DisplayRateInfo<ItemBreakdown>" "List`1"
+Policy --> "DateCriteria" DateCriteria
+Policy --> "Criteria<Config>" "List`1"
+class TransportationSearchResponse {
+}
+class Transportation {
+    + Token : string <<get>> <<set>>
+    + Vendor : string <<get>> <<set>>
+    + Provider : string <<get>> <<set>>
+    + CompanyName : string <<get>> <<set>>
+    + RouteName : string <<get>> <<set>>
+    + TermsAndConditions : string <<get>> <<set>>
+}
+class DisplayRateInfo {
+    + Type : decimal <<get>> <<set>>
+    + Amount : decimal <<get>> <<set>>
+    + Description : string <<get>> <<set>>
+    + CurrencyCode : string <<get>> <<set>>
+    + Purpose : string <<get>> <<set>>
+}
+class AdditionalService {
+    + Description : string <<get>> <<set>>
+    + DescriptionAr : string <<get>> <<set>>
+    + Amount : decimal <<get>> <<set>>
+}
+class Vehicle {
+    + VehicleTypeName : string <<get>> <<set>>
+    + ModelFrom : string <<get>> <<set>>
+    + ModelTo : string <<get>> <<set>>
+}
+class Category {
+    + CategoryName : string <<get>> <<set>>
+}
+class Policy {
+    + Type : string <<get>> <<set>>
+    + Name : string <<get>> <<set>>
+    + ActiveFrom : string <<get>> <<set>>
+    + ActiveTo : string <<get>> <<set>>
+    + Summary : string <<get>> <<set>>
+}
+class "List`1"<T> {
+}
+TransportationSearchResponse --> "Transportations<Transportation>" "List`1"
+Transportation --> "StartDate" DateTime
+Transportation --> "Vehicles<Vehicle>" "List`1"
+Transportation --> "Policies<Policy>" "List`1"
+Transportation --> "DisplayRateInfo<DisplayRateInfo>" "List`1"
+Vehicle --> "Categories<Category>" "List`1"
+Category --> "DisplayRateInfo<DisplayRateInfo>" "List`1"
+Category --> "AdditionalServices<AdditionalService>" "List`1"
+class ValueEntityRemoved <<partial>> {
+}
+class DataContextModelSnapshot <<partial>> {
+}
+ModelSnapshot <|-- DataContextModelSnapshot
+class SeedValues <<partial>> {
+}
+class ActivityEntityAdded <<partial>> {
+}
+class FixDescriptionColumnName <<partial>> {
+}
+Migration <|-- FixDescriptionColumnName
+class Initial <<partial>> {
+}
+class ValueEntityRemoved <<partial>> {
+}
+Migration <|-- ValueEntityRemoved
+class SeedValues <<partial>> {
+}
+Migration <|-- SeedValues
+class Initial <<partial>> {
+}
+Migration <|-- Initial
+class ActivityEntityAdded <<partial>> {
+}
+Migration <|-- ActivityEntityAdded
+class FixDescriptionColumnName <<partial>> {
+}
+class Edit {
+}
+class Command {
+    + Id : Guid? <<get>> <<set>>
+    + Title : string <<get>> <<set>>
+    + Description : string <<get>> <<set>>
+    + Category : string <<get>> <<set>>
+    + Date : DateTime? <<get>> <<set>>
+    + City : string <<get>> <<set>>
+    + Venue : string <<get>> <<set>>
+}
+class Handler {
+    + Handler(context:DataContext)
+    + <<async>> Handle(request:Command, cancellationToken:CancellationToken) : Task<Unit>
+}
+class "IRequestHandler`1"<T> {
+}
+Edit +-- Command
+IRequest <|-- Command
+Edit +-- Handler
+"IRequestHandler`1" "<Command>" <|-- Handler
+class Delete {
+}
+class Command {
+}
+class Handler {
+    + Handler(context:DataContext)
+    + <<async>> Handle(request:Command, cancellationToken:CancellationToken) : Task<Unit>
+}
+class "IRequestHandler`1"<T> {
+}
+Delete +-- Command
+IRequest <|-- Command
+Command --> "Id" Guid
+Delete +-- Handler
+"IRequestHandler`1" "<Command>" <|-- Handler
+class List {
+}
+class Query {
+}
+class Handler {
+    + Handler(context:DataContext)
+    + <<async>> Handle(request:Query, cancellationToken:CancellationToken) : Task<List<Activity>>
+}
+class "IRequest`1"<T> {
+}
+class "IRequestHandler`2"<T1,T2> {
+}
+List +-- Query
+"IRequest`1" "<List<Activity>>" <|-- Query
+List +-- Handler
+"IRequestHandler`2" "<Query,List<Activity>>" <|-- Handler
+class Create {
+}
+class Command {
+    + Id : Guid? <<get>> <<set>>
+    + Title : string <<get>> <<set>>
+    + Description : string <<get>> <<set>>
+    + Category : string <<get>> <<set>>
+    + Date : DateTime? <<get>> <<set>>
+    + City : string <<get>> <<set>>
+    + Venue : string <<get>> <<set>>
+}
+class Handler {
+    + Handler(context:DataContext)
+    + <<async>> Handle(request:Command, cancellationToken:CancellationToken) : Task<Unit>
+}
+class "IRequestHandler`1"<T> {
+}
+Create +-- Command
+IRequest <|-- Command
+Create +-- Handler
+"IRequestHandler`1" "<Command>" <|-- Handler
+class Details {
+}
+class Query {
+}
+class Handler {
+    + Handler(context:DataContext)
+    + <<async>> Handle(request:Query, cancellationToken:CancellationToken) : Task<Activity>
+}
+class "IRequest`1"<T> {
+}
+class "IRequestHandler`2"<T1,T2> {
+}
+Details +-- Query
+"IRequest`1" "<Activity>" <|-- Query
+Query --> "Id" Guid
+Details +-- Handler
+"IRequestHandler`2" "<Query,Activity>" <|-- Handler
+class ActivitiesController {
+    + ActivitiesController(logger:ILogger<ActivitiesController>, mediator:IMediator)
+    + <<async>> List() : Task<ActionResult<List<Activity>>>
+    + <<async>> Details(id:Guid) : Task<ActionResult<Activity>>
+    + <<async>> Create(activity:Create.Command) : Task<ActionResult<Unit>>
+    + <<async>> Edit(id:Guid, activity:Edit.Command) : Task<ActionResult<Unit>>
+    + <<async>> Delete(id:Guid) : Task<ActionResult<Unit>>
+}
+ControllerBase <|-- ActivitiesController
+@enduml

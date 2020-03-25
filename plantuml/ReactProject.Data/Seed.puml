@@ -1,0 +1,5 @@
+@startuml
+class Seed {
+    + {static} SeedData(context:DataContext) : void
+}
+@enduml

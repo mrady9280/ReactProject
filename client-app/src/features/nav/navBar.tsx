@@ -1,13 +1,15 @@
-import React from "react";
+import React, {useContext} from "react";
 import {Button, Container, Menu} from "semantic-ui-react";
 import {Mode} from "../../app/models/modes";
-import {Activity, IActivity} from "../../app/models/activity";
+import {Activity} from "../../app/models/activity";
+import activityStore from "../../app/stores/activityStore";
+import {observer} from "mobx-react-lite";
 
-interface IProp{
-    handleMode: (mode: Mode,act:IActivity)=>void;
+interface IProp {
 }
 
-const NavBar: React.FC<IProp> = ({handleMode}) => {
+const NavBar: React.FC<IProp> = () => {
+    const store = useContext(activityStore);
     return (
         <Menu fixed={"top"} inverted>
             <Container>
@@ -17,11 +19,12 @@ const NavBar: React.FC<IProp> = ({handleMode}) => {
                 </Menu.Item>
                 <Menu.Item name='Activities'/>
                 <Menu.Item>
-                    <Button positive content="Create Activity" onClick={()=> handleMode(Mode.create,new Activity())}/>
+                    <Button positive content="Create Activity"
+                            onClick={() => store.handleMode(Mode.create, new Activity())}/>
                 </Menu.Item>
             </Container>
         </Menu>
     )
 };
 
-export default NavBar
+export default observer(NavBar)

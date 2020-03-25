@@ -1,0 +1,19 @@
+@startuml
+class Details {
+}
+class Query {
+}
+class Handler {
+    + Handler(context:DataContext)
+    + <<async>> Handle(request:Query, cancellationToken:CancellationToken) : Task<Activity>
+}
+class "IRequest`1"<T> {
+}
+class "IRequestHandler`2"<T1,T2> {
+}
+Details +-- Query
+"IRequest`1" "<Activity>" <|-- Query
+Query --> "Id" Guid
+Details +-- Handler
+"IRequestHandler`2" "<Query,Activity>" <|-- Handler
+@enduml

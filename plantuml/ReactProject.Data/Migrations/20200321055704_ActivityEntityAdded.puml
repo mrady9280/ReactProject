@@ -1,0 +1,5 @@
+@startuml
+class ActivityEntityAdded <<partial>> {
+}
+Migration <|-- ActivityEntityAdded
+@enduml

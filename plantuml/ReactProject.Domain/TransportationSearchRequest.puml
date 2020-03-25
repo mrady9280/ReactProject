@@ -1,0 +1,16 @@
+@startuml
+class TransportationSearchRequest {
+    + Token : string <<get>> <<set>>
+    + RouteCode : string <<get>> <<set>>
+    + StartDate : string <<get>> <<set>>
+    + Adults : int <<get>> <<set>>
+    + Children : int <<get>> <<set>>
+    + ModelFrom : string <<get>> <<set>>
+    + ModelTo : string <<get>> <<set>>
+    + VehicleTypeCode : string <<get>> <<set>>
+    + CategoryCode : string <<get>> <<set>>
+}
+class "List`1"<T> {
+}
+TransportationSearchRequest --> "AdditionalServices<string>" "List`1"
+@enduml

@@ -1,0 +1,5 @@
+@startuml
+class FixDescriptionColumnName <<partial>> {
+}
+Migration <|-- FixDescriptionColumnName
+@enduml

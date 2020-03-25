@@ -1,0 +1,49 @@
+@startuml
+class TransportationSearchResponse {
+}
+class Transportation {
+    + Token : string <<get>> <<set>>
+    + Vendor : string <<get>> <<set>>
+    + Provider : string <<get>> <<set>>
+    + CompanyName : string <<get>> <<set>>
+    + RouteName : string <<get>> <<set>>
+    + TermsAndConditions : string <<get>> <<set>>
+}
+class DisplayRateInfo {
+    + Type : decimal <<get>> <<set>>
+    + Amount : decimal <<get>> <<set>>
+    + Description : string <<get>> <<set>>
+    + CurrencyCode : string <<get>> <<set>>
+    + Purpose : string <<get>> <<set>>
+}
+class AdditionalService {
+    + Description : string <<get>> <<set>>
+    + DescriptionAr : string <<get>> <<set>>
+    + Amount : decimal <<get>> <<set>>
+}
+class Vehicle {
+    + VehicleTypeName : string <<get>> <<set>>
+    + ModelFrom : string <<get>> <<set>>
+    + ModelTo : string <<get>> <<set>>
+}
+class Category {
+    + CategoryName : string <<get>> <<set>>
+}
+class Policy {
+    + Type : string <<get>> <<set>>
+    + Name : string <<get>> <<set>>
+    + ActiveFrom : string <<get>> <<set>>
+    + ActiveTo : string <<get>> <<set>>
+    + Summary : string <<get>> <<set>>
+}
+class "List`1"<T> {
+}
+TransportationSearchResponse --> "Transportations<Transportation>" "List`1"
+Transportation --> "StartDate" DateTime
+Transportation --> "Vehicles<Vehicle>" "List`1"
+Transportation --> "Policies<Policy>" "List`1"
+Transportation --> "DisplayRateInfo<DisplayRateInfo>" "List`1"
+Vehicle --> "Categories<Category>" "List`1"
+Category --> "DisplayRateInfo<DisplayRateInfo>" "List`1"
+Category --> "AdditionalServices<AdditionalService>" "List`1"
+@enduml

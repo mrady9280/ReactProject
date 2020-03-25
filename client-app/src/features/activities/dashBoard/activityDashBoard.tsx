@@ -1,51 +1,34 @@
-import React from "react";
+import React, {useContext} from "react";
 import {Grid, GridColumn, List} from "semantic-ui-react";
-import {IActivity} from "../../../app/models/activity";
-import Activity from "./activity";
+import ActivityCard from "./activityCard";
 import ActivityDetails from "../details/activityDetail";
 import ActivityForm from "../form/activityForm";
 import {Mode} from "../../../app/models/modes";
+import {observer} from "mobx-react-lite";
+import activityStore from "../../../app/stores/activityStore";
 
 interface IProps {
-    activities: IActivity[];
-    activity: IActivity;
-    mode: Mode;
-    handleMode: (mode: Mode, act: IActivity) => void;
-    handleCreateActivity: (activity: IActivity) => void;
-    handleEditActivity: (activity: IActivity) => void;
-    handleDeleteActivity: (id: string) => void;
 }
 
-const ActivityDashBoard: React.FC<IProps> = ({
-                                                 activities,
-                                                 activity,
-                                                 mode,
-                                                 handleMode,
-                                                 handleCreateActivity,
-                                                 handleEditActivity,
-                                                 handleDeleteActivity
-                                             }) => {
+const ActivityDashBoard: React.FC<IProps> = () => {
+    const store = useContext(activityStore);
 
     return (
         <Grid>
             <GridColumn width={10}>
                 <List>
-                    {activities.map((activity) => (
-
-                        <Activity activity={activity} key={activity.id}
-                                  handleMode={handleMode} handleDeleteActivity={handleDeleteActivity}/>
+                    {store.ActivitiesSortByDate.map((activity) => (
+                        <ActivityCard key={activity.id} activity={activity}/>
                     ))}
                 </List>
             </GridColumn>
             <GridColumn width={6}>
-                {activity.id.length > 0 && mode === Mode.view &&
-                <ActivityDetails activity={activity} handleMode={handleMode}/>
+                {store.activity.id.length > 0 && store.mode === Mode.view &&
+                <ActivityDetails/>
                 }
                 {
-                    (mode === Mode.create || mode === Mode.edit) &&
-                    <ActivityForm handleMode={handleMode} activity={activity}
-                                  handleCreateActivity={handleCreateActivity} mode={mode}
-                                  handleEditActivity={handleEditActivity} key={activity.id}/>
+                    (store.mode === Mode.create || store.mode === Mode.edit) &&
+                    <ActivityForm key={store.activity.id}/>
                 }
 
             </GridColumn>
@@ -53,4 +36,4 @@ const ActivityDashBoard: React.FC<IProps> = ({
     )
 };
 
-export default ActivityDashBoard
+export default observer(ActivityDashBoard)

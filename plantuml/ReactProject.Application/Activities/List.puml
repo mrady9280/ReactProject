@@ -1,0 +1,18 @@
+@startuml
+class List {
+}
+class Query {
+}
+class Handler {
+    + Handler(context:DataContext)
+    + <<async>> Handle(request:Query, cancellationToken:CancellationToken) : Task<List<Activity>>
+}
+class "IRequest`1"<T> {
+}
+class "IRequestHandler`2"<T1,T2> {
+}
+List +-- Query
+"IRequest`1" "<List<Activity>>" <|-- Query
+List +-- Handler
+"IRequestHandler`2" "<Query,List<Activity>>" <|-- Handler
+@enduml

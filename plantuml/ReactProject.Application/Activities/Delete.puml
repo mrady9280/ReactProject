@@ -1,0 +1,17 @@
+@startuml
+class Delete {
+}
+class Command {
+}
+class Handler {
+    + Handler(context:DataContext)
+    + <<async>> Handle(request:Command, cancellationToken:CancellationToken) : Task<Unit>
+}
+class "IRequestHandler`1"<T> {
+}
+Delete +-- Command
+IRequest <|-- Command
+Command --> "Id" Guid
+Delete +-- Handler
+"IRequestHandler`1" "<Command>" <|-- Handler
+@enduml

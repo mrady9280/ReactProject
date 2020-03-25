@@ -1,19 +1,26 @@
-import React from "react";
+import React, {useContext} from "react";
 import {Item, Button, Label, Segment} from "semantic-ui-react";
-import {IActivity} from "../../../app/models/activity";
+import {Activity, IActivity} from "../../../app/models/activity";
 import {Mode} from "../../../app/models/modes";
+import activityStore from "../../../app/stores/activityStore";
+import {observer} from "mobx-react-lite";
 
 interface IProps {
-    activity: IActivity;
-    handleMode: (mode: Mode,act:IActivity) => void;
-    handleDeleteActivity: (id: string) => void;
+    activity: IActivity
 }
 
-const Activity: React.FC<IProps> = ({activity, handleMode,handleDeleteActivity}) => {
+const ActivityCard: React.FC<IProps> = ({activity}) => {
+    const store = useContext(activityStore);
+
     const handleDelete = (id: string) => {
-        handleDeleteActivity(activity.id);
-        handleMode(Mode.none,activity);
+        store.handleDeleteActivity(id);
+        store.handleMode(Mode.none, new Activity());
     };
+    const handleView = (activity: IActivity) => {
+        store.setActivity(activity);
+        store.handleMode(Mode.view, store.activity);
+    };
+
     return (
         <Segment clearing>
             <Item.Group divided>
@@ -27,7 +34,7 @@ const Activity: React.FC<IProps> = ({activity, handleMode,handleDeleteActivity})
                         </Item.Description>
                         <Item.Extra>
                             <Button content={'View'} floated={'right'} color={'blue'}
-                                    onClick={() => handleMode(Mode.view,activity)}/>
+                                    onClick={() => handleView(activity)}/>
                             <Button content={'Delete'} floated={'right'} color={'red'}
                                     onClick={() => handleDelete(activity.id)}/>
                             <Label basic content={activity.category}/>
@@ -39,4 +46,4 @@ const Activity: React.FC<IProps> = ({activity, handleMode,handleDeleteActivity})
     )
 };
 
-export default Activity
+export default observer(ActivityCard);

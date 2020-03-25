@@ -1,28 +1,20 @@
-import React, {FormEvent, useState} from "react";
+import React, {FormEvent, useContext, useState} from "react";
 import {Button, Form, FormInput, FormTextArea, Segment} from "semantic-ui-react";
 import {Activity, IActivity} from "../../../app/models/activity";
 import {Mode} from "../../../app/models/modes";
 import {v4 as uuid} from "uuid";
+import activityStore from "../../../app/stores/activityStore";
+import {observer} from "mobx-react-lite";
 
 interface IProps {
-    handleMode: (mode: Mode, act: IActivity) => void;
-    activity: Activity;
-    handleCreateActivity: (activity: IActivity) => void;
-    mode: Mode;
-    handleEditActivity: (activity: IActivity) => void;
 }
 
-const ActivityForm: React.FC<IProps> = ({
-                                            handleMode,
-                                            activity: InitialFormState,
-                                            handleCreateActivity,
-                                            mode,
-                                            handleEditActivity
-                                        }) => {
+const ActivityForm: React.FC<IProps> = () => {
+    const store = useContext(activityStore);
 
     const initializeForm = () => {
-        if (InitialFormState.id.length > 0) {
-            return InitialFormState;
+        if (store.activity.id.length > 0) {
+            return store.activity;
 
         } else {
             return new Activity();
@@ -36,13 +28,13 @@ const ActivityForm: React.FC<IProps> = ({
         setActivity({...stateActivity, [name]: value})
     };
     const handleSubmit = () => {
-        if (mode === Mode.create) {
+        if (store.mode === Mode.create) {
             let newActivity = {...stateActivity, id: uuid()};
-            handleCreateActivity(newActivity);
+            store.handleCreateActivity(newActivity);
         } else {
-            handleEditActivity(stateActivity);
+            store.handleEditActivity(stateActivity);
         }
-        handleMode(Mode.none, new Activity());
+        store.handleMode(Mode.none, new Activity());
     };
     return (
         <Segment clearing>
@@ -62,10 +54,10 @@ const ActivityForm: React.FC<IProps> = ({
                            onChange={handleInputChange}/>
                 <Button floated={'right'} positive type={'submit'} content={'Save'}/>
                 <Button floated={'right'} type={'button'} content={'Cancel'}
-                        onClick={() => handleMode(Mode.none, stateActivity)}/>
+                        onClick={() => store.handleMode(Mode.none, stateActivity)}/>
             </Form>
         </Segment>
     )
 };
 
-export default ActivityForm
+export default observer(ActivityForm)

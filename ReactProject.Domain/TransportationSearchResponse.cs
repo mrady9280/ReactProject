@@ -1,4 +1,4 @@
-namespace ReactProject.Domain
+namespace ReactProject.Domain1
 {
     using System;
     using System.Collections.Generic;
@@ -12,9 +12,7 @@ namespace ReactProject.Domain
         public string Vendor { get; set; }
         public string Provider { get; set; }
         public string CompanyName { get; set; }
-        public string CompanyNameAr { get; set; }
         public string RouteName { get; set; }
-        public string RouteNameAr { get; set; }
         public DateTime StartDate { get; set; }
         public string TermsAndConditions { get; set; }
         public List<Vehicle> Vehicles { get; set; }
@@ -23,6 +21,7 @@ namespace ReactProject.Domain
     }
     public class DisplayRateInfo
     {
+        public decimal Type { get; set; }
         public decimal Amount { get; set; }
         public string Description { get; set; }
         public string CurrencyCode { get; set; }
@@ -37,11 +36,16 @@ namespace ReactProject.Domain
     public class Vehicle
     {
         public string VehicleTypeName { get; set; }
-        public string CategoryName { get; set; }
         public string ModelFrom { get; set; }
         public string ModelTo { get; set; }
+        public List<Category> Categories { get; set; }
+    }
+
+    public class Category
+    {
+        public string CategoryName { get; set; }
         public List<DisplayRateInfo> DisplayRateInfo { get; set; }
-        public List<AdditionalService> AdditionalServices { get; set; }
+        public List<AdditionalService> AdditionalServices { get; set; } 
     }
     public class Policy
     {

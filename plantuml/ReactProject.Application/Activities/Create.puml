@@ -1,0 +1,23 @@
+@startuml
+class Create {
+}
+class Command {
+    + Id : Guid? <<get>> <<set>>
+    + Title : string <<get>> <<set>>
+    + Description : string <<get>> <<set>>
+    + Category : string <<get>> <<set>>
+    + Date : DateTime? <<get>> <<set>>
+    + City : string <<get>> <<set>>
+    + Venue : string <<get>> <<set>>
+}
+class Handler {
+    + Handler(context:DataContext)
+    + <<async>> Handle(request:Command, cancellationToken:CancellationToken) : Task<Unit>
+}
+class "IRequestHandler`1"<T> {
+}
+Create +-- Command
+IRequest <|-- Command
+Create +-- Handler
+"IRequestHandler`1" "<Command>" <|-- Handler
+@enduml

@@ -1,0 +1,5 @@
+@startuml
+class SeedValues <<partial>> {
+}
+Migration <|-- SeedValues
+@enduml
