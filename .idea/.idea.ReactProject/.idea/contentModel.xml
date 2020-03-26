@@ -170,7 +170,7 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
-            <e p="netstandard2.0" t="Include">
+            <e p="netstandard2.1" t="Include">
               <e p="ReactProject.Application.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
@@ -195,7 +195,7 @@
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
-            <e p="netstandard2.0" t="Include">
+            <e p="netstandard2.1" t="Include">
               <e p="ReactProject.Data.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
@@ -208,7 +208,7 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
-            <e p="netstandard2.0" t="Include">
+            <e p="netstandard2.1" t="Include">
               <e p="ReactProject.Domain.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
